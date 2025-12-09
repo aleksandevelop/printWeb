@@ -2171,6 +2171,8 @@ p.copy {
 }
 .order_input {
   /* margin-right: 45px; */
+  display: flex;
+    flex-direction: column;
 }
 #order__textarea{
   max-width: 183px;
@@ -2197,6 +2199,7 @@ p.copy {
 .title p {
   margin: 0;
   font-size: 18px;
+  overflow: hidden;
 }
 .line {
   border-bottom: 1px solid #666666;
@@ -2216,6 +2219,8 @@ p.copy {
   color: #fff;
   text-align: center;
   height: 40px;
+  width: 100%;
+border: none;
 }
 .order_link {
   margin-top: 15px;
@@ -2652,18 +2657,33 @@ input:placeholder{
 	align-items: center;
 	justify-content: space-between;
 }
-.price-title1 {
+.price-title1 {    
   font-family: 'Oswald', sans-serif;
   font-weight: bold;
   font-size: 32px;
   color: #BD3B13;
   text-align: center;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 }
 
 .order-form {
   display: flex;
+  
 }
-
+/* input:not(:invalid){
+  border: 1px solid red;
+} */
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.invalid{
+  display: none;
+  margin: 0;
+}
 dialog {
   position: absolute !important;
   top: 24em !important;

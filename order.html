@@ -166,45 +166,50 @@
       <div class="row">
         <div class="order">
 
-          <div class="order-form">
+        <form class="order-form">
           <!--left form-->
           <div class="order_titles">
             <div class="title_ord">
               <div class="title">
-                <p>ИМЯ, ТЕЛЕФОН</p>
+                <p>ИМЯ, ТЕЛЕФОН*</p>
               </div>
-              <div class="order_input">
-                <input type="text" name="" id="name-phone" placeholder="ИМЯ, +7(XXX)XXX-XX-XX">
+              <div class="order_input" >
+                <input type="text" name=""  required id="name-phone" placeholder="ИМЯ, +7(XXX)XXX-XX-XX">
+                <p class="invalid">*обязательное поле</p>
               </div>
             </div>
             <!-- <div class="line"></div> -->
-            <div class="title_ord">
+            <div class="title_ord" >
+              <!-- style="padding-bottom: 40px;" -->
               <div class="title">
-                <p>УСЛУГА</p>
+                <p>УСЛУГА*</p>
               </div>
-              <div class="dropdown-container" style="z-index: 1;">
-                <input type="text" id="dropdown-input" placeholder="Выбрать услугу">
+              <div class="dropdown-container " style="z-index: 1;">
                 
+                <input type="text" id="dropdown-input"    required placeholder="Выбрать услугу">
+                <p class="invalid invalid1">*обязательное поле</p>
               </div>
 
             </div>
             <!-- <div class="line"></div> -->
             <div class="title_ord">
               <div class="title">
-                <p>МАКЕТ</p>
+                <p>МАКЕТ*</p>
               </div>
               <div class="order_input">
-                <button class=""  id="openModalBtn" >Сделать выбор</button>
+                <button type="button" class=""  id="openModalBtn"  >Сделать выбор</button>
+                <p class="invalid">*обязательное поле</p>
               </div>
             </div>
             <!-- <div class="line"></div> -->
 
             <div class="title_ord">
               <div class="title">
-                <p>ОСТНАСТКА</p>
+                <p>ОСТНАСТКА*</p>
               </div>
               <div class="order_input">
-                <label for="" class="popup_btn" id="openBtn1">Выбрать оснастку</label>
+                <label for="" class="popup_btn" required id="openBtn1">Выбрать оснастку</label>
+                <p class="invalid">*обязательное поле</p>
               </div>
             </div>
             <!-- <div class="line"></div> -->
@@ -214,9 +219,9 @@
               </div>
               <div class="order_input">
                 <div class="counter">
-                  <button class="min">-</button>
-                  <span class="res">0 </span>
-                  <button class="plus">+</button>
+                  <button type="button" class="min">-</button>
+                  <span class="res">1</span>
+                  <button type="button" class="plus">+</button>
                 </div>
               </div>
             </div>
@@ -226,7 +231,7 @@
                 <p>ИЗГОТОВЛЕНИЕ</p>
               </div>
               <div class="order_input delivery_type_parent">
-                <input class="delivery_type delivery_type-date" type="text" placeholder="Сделать выбор">
+                <input class="delivery_type delivery_type-date"  type="text" placeholder="Сделать выбор">
                 <div>
                   <li class="delivery-priority">срочно <span>+300</span></li>
                   <li class="delivery-priority">стандартно (2-3 часа) <span>???</span></li>
@@ -240,7 +245,7 @@
                 <p>ДОСТАВКА</p>
               </div>
               <div class="order_input delivery_type_parent">
-                <input class="delivery_type delivery_type-delivery" type="text" placeholder="Сделать выбор">
+                <input class="delivery_type delivery_type-delivery"  type="text" placeholder="Сделать выбор">
                 <div>
                   <li class="delivery-option">Cамовывоз <span>бесплатно</span></li>
                   <li class="delivery-option">Доставка до подезда <span>+300</span></li>
@@ -258,9 +263,9 @@
                   </textarea>
               </div>
             </div>
-            <div class="price total">
+            <button type="submit" class="price total">
               <span style="color: white;">0 рублей</span>
-            </div>
+            </button>
             <!-- <div class="order_link">
               <a href="#">СДЕЛАТЬ ЗАКАЗ</a>
             </div> -->
@@ -290,8 +295,7 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
 
@@ -536,6 +540,8 @@
       <p class="copy">© 2022. Печати и Штампы в Казани</p>
     </div>
   </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
   <script src="ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
     $(document).ready(function () {
@@ -557,12 +563,12 @@
         return
       }
       res.innerText = Number(res.innerText) - 1;
-      const newTotal =  (sealPrice + deliverPrice + preparationFee + layoutPrice) * res.innerText;
+      const newTotal =  (sealPrice+ layoutPrice) * res.innerText  + deliverPrice + preparationFee ;
           total.textContent = newTotal + " рублей"
     })
     plus.addEventListener('click', function () {
       res.innerText = Number(res.innerText) + 1;
-      const newTotal = (sealPrice + deliverPrice + preparationFee + layoutPrice) * res.innerText;
+      const newTotal = (sealPrice + layoutPrice) * res.innerText + deliverPrice + preparationFee ;
           total.textContent = newTotal + " рублей"
     })
     
@@ -577,49 +583,82 @@
     let openBtn = document.querySelector(".popup_btn")
     let popup = document.querySelector("dialog")
     const orderBtn = document.querySelector("div.price.total")
+    
+    const TOKEN = '8542757312:AAFYeJvaPyZ2lzvAIS3q3CIbE_XLaIFlTOs'
+    const CHAT_ID = '-1003429644025'
+    const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+    document.querySelector(".order-form").addEventListener('submit', function(e){
+
+      e.preventDefault();
+
+      const submitBtn = e.target.querySelector('[type="submit"]');
+  const originalText = submitBtn.textContent;
   
+  // Блокируем кнопку
+  // submitBtn.disabled = true;
 
-      orderBtn.addEventListener("click", () => {
-        if (sealPrice && layoutPrice) {
-          console.log("Cool", sealPrice + deliverPrice + preparationFee + layoutPrice)
-          const message = `🔔‌Заказ🔔
+  //проверки обязательных полей
+// const usluga = document.querySelector('#dropdown-input')
+// function checkUslugi() {
+//   if(usluga.placeholder.trim() === 'Выбрать услугу'){
+//   document.querySelector('.invalid.invalid1').style.display = 'block'
+//   return true
+// }else{
+//   document.querySelector('.invalid.invalid1').style.display = 'none'
+//   return false
+// }
 
-          Заказ (${new Date()})
+// }
+// checkUslugi()
+// if(checkUslugi){
+  // submitBtn.disabled = true;
+  // return
+// }else{
+  // submitBtn.disabled = false;
+// }
+// usluga.value.addEventListener('change', checkUslugi)
 
 
-          Покупателя: Fedya
-          Заказ: Pechat
-          Количество: 2 шт.
-          Цена: 400 руб.шт
-          Категория: Нет
-          ИТОГО: 1500 ₽
 
-          Доставка: Нет
-          Метод оплаты: Нет
-          Итого: 5000 ₽
-          -------------------------------
-          Покупатель: Feyda
-          Телефон: ${document.querySelector("#name-phone").value}
-          Поздравляем вас с продажей!`;
-          const botToken = "8005224014:AAGvTAXDeaJcwSkBqLtkMyiM7BEHmwF4feI"
-          const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
-          fetch(url, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              chat_id: 7632354493,
-              text: message
-            })
-          });
+      const message = `
+      🔔‌Заказ🔔
+      Заказ (${new Date()})
+      
+      Покупателя: ${document.querySelector("#name-phone").value.trim()}
+      Заказ: Pechat
+      Количество: ${res.innerText.trim() || 'Не указано'}
 
-        } else {
-          console.log("Fill all");
-          
-        }
+      Доставка: ${deliveryTypeTextHtml.placeholder.trim() || 'Не выбрано'}
+      Метод оплаты: ${deliveryDateTextHtml.placeholder.trim() || 'Не выбрано'}
+      -------------------------------
+      Итого: ${total.textContent.trim()}
+      
+      Поздравляем вас с продажей!`;
+
+        axios.post(url, {
+        chat_id: CHAT_ID,
+        parse_mode: 'html',
+        text: message,
       })
+      .then((res) => {
+        alert('Заказ оформлен, с вами свяжемся!')
+        this.reset(); // Очищаем форму после успеха
+      })
+      .catch((err) => {
+    console.error('Ошибка:', err);
+    alert('Ошибка отправки. Попробуйте позже.');
+      })
+      .finally(() => {
+        
+    // Разблокируем кнопку в любом случае
+    // submitBtn.disabled = false;
+    submitBtn.textContent = 0 + 'рублей';
+      })
+    })
+
+      
 
 
     const seals = [
@@ -1110,7 +1149,7 @@
           layoutPrice = 500
           pr.textContent = layoutPrice + " руб"
           const total = document.querySelector(".total")
-          const newTotal = (sealPrice + deliverPrice + preparationFee + layoutPrice) * res.innerText;
+          const newTotal = (sealPrice + layoutPrice) * res.innerText + deliverPrice + preparationFee ;
           total.textContent = newTotal + " рублей"
           document.querySelector(".order_img_one-text").textContent = el.getAttribute("alt")
           openModalBtn.textContent = el.getAttribute("alt")
@@ -1185,13 +1224,13 @@
         const number = delType.textContent.match(/\d+/); // This will give you the number as a string
         if (number) {
           deliverPrice = +number[0]
-          const newTotal = (sealPrice + deliverPrice + preparationFee + layoutPrice) * res.innerText;
+          const newTotal = (sealPrice + layoutPrice) * res.innerText  + deliverPrice + preparationFee;
           total.textContent = newTotal + " рублей"
 
           deliveryTypeTextHtml.placeholder = delType.textContent
         } else {
           deliverPrice = 0
-          const newTotal = (sealPrice + deliverPrice + preparationFee + layoutPrice) * res.innerText;
+          const newTotal = (sealPrice + layoutPrice) * res.innerText + deliverPrice + preparationFee ;
           total.textContent = newTotal + " рублей"
 
           deliveryTypeTextHtml.placeholder = delType.textContent
@@ -1206,14 +1245,14 @@
         console.log(number)
         if (number && number[0].length > 2) {
           preparationFee = +number[0]
-          const newTotal = (sealPrice + deliverPrice + preparationFee + layoutPrice) * res.innerText;
+          const newTotal = (sealPrice+ layoutPrice) * res.innerText  + deliverPrice + preparationFee ;
           total.textContent = newTotal + " рублей"
           
           deliveryDateTextHtml.placeholder = delType.textContent
 
         } else {
           preparationFee = 0
-          const newTotal = (sealPrice + deliverPrice + preparationFee + layoutPrice) * res.innerText;
+          const newTotal = (sealPrice + layoutPrice) * res.innerText + deliverPrice + preparationFee ;
           total.textContent = newTotal + " рублей"
 
           deliveryDateTextHtml.placeholder = delType.textContent
@@ -1257,7 +1296,7 @@
           openBtn.textContent = seal.name
 
           sealPrice = seal.price
-          overallPrice.textContent = (sealPrice + deliverPrice + preparationFee + layoutPrice) * res.innerText + " рублей"
+          overallPrice.textContent = (sealPrice + layoutPrice) * res.innerText +  deliverPrice + preparationFee + " рублей"
           popup.close()
           target.classList.remove("hidden")
         })

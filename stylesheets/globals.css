@@ -596,6 +596,7 @@ embed {
 	color: black;
 	font-weight: 500;
 	font-size: 14px;
+  margin: 0;
 }
 
 input:placeholder {
@@ -613,7 +614,7 @@ input:placeholder {
   font-family: Oswald, sans-serif;
 	padding-top: 10px;
   /* color: gray; */
-
+  overflow: hidden;
 	font-weight: 500;
 	color: black;
 }
@@ -633,6 +634,7 @@ flex-direction: column;
   font-family: Oswald, sans-serif;
   /* font-weight: 700; */
 color: black;
+overflow: hidden;
 }
 .span-box {
   width: 20px;

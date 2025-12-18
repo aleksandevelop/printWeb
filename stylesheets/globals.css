@@ -351,7 +351,7 @@ sup {
 body {
   background: white;
   font-size: 14px;
-  line-height: 1.5em;
+  /* line-height: 1.5em; */
   color: #333333;
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -616,18 +616,20 @@ input:placeholder {
 .order_img_one-title {
   font-weight: 700;
   font-size: 20px;
+  height: 30px;
   font-family: Oswald, sans-serif;
-	padding-top: 10px;
-  /* color: gray; */
   overflow: hidden;
 	font-weight: 500;
 	color: black;
+  margin: 0;
+  align-self: start;
 }
 .order_images{
-	display: flex;
-flex-direction: column;
+	display: grid;
+  grid-template-rows: repeat(2, 1fr);
 	gap: 10px;
 	margin-left:10px ;
+  height: 100%;
 }
 .price {
   margin-top: 20px;
@@ -635,11 +637,10 @@ flex-direction: column;
 
 .order_img_one-text {
   font-size: 20px;
-  /* color: gray; */
   font-family: Oswald, sans-serif;
-  /* font-weight: 700; */
 color: black;
 overflow: hidden;
+margin: 0;
 }
 .span-box {
   width: 20px;

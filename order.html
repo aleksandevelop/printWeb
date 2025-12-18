@@ -236,8 +236,7 @@
                 <div class="order_input delivery_type_parent">
                   <input class="delivery_type delivery_type-date" required readonly type="text"
                     placeholder="Сделать выбор">
-                  <div>
-
+                  <div style="width: 100%;">
                     <li class="delivery-priority">срочно <span>+300</span></li>
                     <li class="delivery-priority">стандартно (2-3 часа) <span>???</span></li>
                     <li class="delivery-priority">1 день <span>???</span></li>
@@ -256,7 +255,7 @@
                   <input class="delivery_type delivery_type-delivery" readonly required type="text"
                     placeholder="Сделать выбор">
 
-                  <div>
+                  <div style="width: 100%;">
                     <li class="delivery-option">Cамовывоз <span>бесплатно</span></li>
                     <li class="delivery-option">Доставка до подезда <span>+300</span></li>
                     <li class="delivery-option">Доставка до метро <span>+200</span></li>
@@ -287,11 +286,11 @@
 
             <!--right image-->
             <div class="order_images" style="z-index: 0; ">
-              <div class="order_img_one" style="height: 50%; ">
+              <div class="order_img_one" >
                 <p class="order_img_one-title"></p>
                 <img class="seal-layout "
                 src="images/plhold.jpg"
-              alt="" style=" margin-top: 20px;" loading="lazy">
+              alt=""  loading="lazy">
                 <div class="price-wrapper">
                   <p class="order_img_one-text"> </p>
                   <p class="price-title1">0 руб.</p>
@@ -299,9 +298,9 @@
                 <p class="pricee hidden">500 руб</p>
               </div>
 
-              <div class="order_img_one" style="height: 50%; ">
+              <div class="order_img_one">
                 <p class="order_img_one-title"></p>
-                <img class="seal-layout seal-img-target"  src="images/plhold.jpg"  alt="" style="margin-top:20px " loading="lazy  ">
+                <img class="seal-layout seal-img-target"  src="images/plhold.jpg"  alt=""  loading="lazy  ">
                 <div class="price-wrapper">
                   <p class="order_img_one-text seal-title"> </p>
                   <p class="price-title1 price-title2">0 руб</p>
@@ -1389,20 +1388,24 @@
           seals.forEach((seal, index) => {
             const imgContainer = document.createElement("div");
             imgContainer.classList.add("seals-div");
+            const imgWithPContainer = document.createElement("div");
+            imgWithPContainer.classList.add("seals_img-div");
             const img = document.createElement("img");
             const title = document.createElement("p")
             const p = document.createElement("p");
 
             title.textContent = seal.name
             
-            p.textContent = seal.price
+            p.textContent = seal.price + " ₽"
             p.style.color = "#bd3b13"
             p.style.fontSize = "18px"
             img.src = seal.href;
             img.classList.add("seal-modal-images")
             img.setAttribute('loading', 'lazy')
             imgContainer.append(img, title, p)
+            imgWithPContainer.append(img, title)
             sealsContainer.appendChild(imgContainer)
+            imgContainer.appendChild(imgWithPContainer)
 
             img.addEventListener("click", () => {
               const target = document.querySelector(".seal-img-target");

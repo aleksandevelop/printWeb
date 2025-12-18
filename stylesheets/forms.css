@@ -13,8 +13,8 @@ form {
 }
 
 form p {
-	margin-bottom: 25px;
-	overflow: auto;
+	/* margin-bottom: 25px; */
+	/* overflow: auto; */
 }
 
 form label {

@@ -1964,6 +1964,10 @@ p.copy {
   font-weight: bold;
   width: 200px;
   height: 40px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: "Oswald";
+  letter-spacing: 1.1px;
 }
 
 #footer {
@@ -2003,6 +2007,7 @@ p.copy {
 
 .df {
   display: flex;
+  justify-content: end;
 }
 
 /* this line to fuck */
@@ -2035,8 +2040,8 @@ p.copy {
 .box-content {
   background: url("../images/timetable/graph.jpg") 100% / contain no-repeat;
   /* border: 1px solid gray; */
-  width: 320px;
-  height: 440px;
+  width: 310px;
+  /* height: 440px; */
 }
 
 .box-content h3 {
@@ -2448,10 +2453,9 @@ span {
   gap: 7px;
   font-size: 15px;
 }
-.seals_img-div{
-  
+.seals_img-div {
   /* width: 60px; /* control image size */
-  /* height: 60px; */ 
+  /* height: 60px; */
   object-fit: contain; /* maintain aspect ratio */
   cursor: pointer;
   border-radius: 4px;
@@ -2467,12 +2471,10 @@ span {
   white-space: nowrap;
 }
 .seals-container img {
-  width: 150px; 
+  width: 150px;
   height: 160px;
-  object-fit: contain; 
-
+  object-fit: contain;
 }
-
 
 .portfolio-row {
   margin-bottom: 160px;
@@ -2549,7 +2551,7 @@ span {
 .dropdown-option__size {
   display: flex;
   justify-content: space-between;
-    width: 100%;
+  width: 100%;
 }
 .dropdown-option__size span {
   padding: 0;
@@ -2598,7 +2600,7 @@ span {
   align-items: end;
   gap: 5px;
 }
-.sub-option span{
+.sub-option span {
   pointer-events: none;
 }
 .sub-option:hover {
@@ -2659,7 +2661,7 @@ span {
   transition-duration: 0.2s;
   will-change: transform;
 }
-.sealOption:hover{
+.sealOption:hover {
   transform: scale(1.1);
 }
 
@@ -2674,9 +2676,9 @@ span {
 
 .imageGallery img {
   width: 160px;
-    height: 165px;
-    padding: 10px;
-    margin: 10px;
+  height: 165px;
+  padding: 10px;
+  margin: 10px;
   outline: 1px solid gray;
   cursor: pointer;
   border-radius: 8px;
@@ -2690,7 +2692,7 @@ span {
   max-height: 500px;
   overflow: auto;
   grid-template-columns: repeat(5, 1fr);
-    justify-items: center;
+  justify-items: center;
   grid-template-columns: repeat(5, 1fr);
 }
 
@@ -2732,8 +2734,8 @@ input:placeholder {
   font-size: 32px;
   color: #bd3b13;
   white-space: nowrap;
-  margin: 0;   
-   align-self: end;
+  margin: 0;
+  align-self: end;
 }
 
 .order-form {
@@ -2800,7 +2802,6 @@ dialog .close:hover {
   dialog {
     width: 100%;
     width: 1024px;
-  
   }
 }
 

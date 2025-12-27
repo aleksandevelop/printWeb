@@ -716,17 +716,53 @@
         </div>
         <div class="six columns">
           <div class="mod modTestimonials" data-connectors="1">
-            <h3 class="mainheaders nexaScriptHeavyFont" style="text-transform: none;">Оставить Отзыв</h3>
-            <div class="contacts">
-              <div class="inp">
-                <input type="text" placeholder="Имя, статус">
-                <input type="text" placeholder="Почта" style="margin-top: 20px;">
-                <textarea placeholder="Сообщение"></textarea>
+            <h3
+              class="mainheaders nexaScriptHeavyFont"
+              style="text-transform: none">
+              Оставить Отзыв
+            </h3>
+    
+            <form id="feedbackForm" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="d75a56e0-7cf0-4715-93eb-17ee229d7ce5">
+              <input type="hidden" name="form_type" value="review">
+              <div class="contacts">
+                <div class="inp">
+                  <input
+                    type="text"
+                    id="user_name"
+                    name="user_name"
+                    placeholder="Имя, статус"
+                    required
+                    pattern="^[А-Яа-яЁёA-Za-z\s]{2,50}$"
+                    title="Введите имя (2-50 символов, только буквы и пробелы)" />
+    
+                  <input
+                    type="email"
+                    id="user_email"
+                    name="user_email"
+                    placeholder="Почта"
+                    style="margin-top: 20px"
+                    required
+                    pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                    title="Введите корректный email адрес" />
+    
+                  <textarea
+                    id="user_message"
+                    name="user_message"
+                    placeholder="Сообщение"
+                    required
+                    minlength="10"
+                    maxlength="1000"
+                    rows="4"
+                    title="Сообщение должно быть от 10 до 1000 символов"></textarea>
+                </div>
               </div>
-            </div>
-            <div class="send">
-              <button>Отправить</button>
-            </div>
+    
+    
+              <div class="send">
+                <button type="submit" id="submitBtn">Отправить</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

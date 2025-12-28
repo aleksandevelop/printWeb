@@ -171,13 +171,19 @@
 
           <form class="order-form">
             <!--left form-->
+            
+            <input type="hidden" name="form_type" value="order">
+
             <div class="order_titles">
               <div class="title_ord">
                 <label for="name" class="title">
                   <p>ИМЯ *</p>
                 </label>
                 <div class="order_input">
-                  <input type="text" name="" required id="name" placeholder="Введите своё имя">
+                  <input type="text" 
+                  id="name" name="name" required id="name" placeholder="Введите своё имя" 
+                  pattern="^[А-Яа-яЁёA-Za-z\s]{2,50}$" 
+                  title="Введите имя (2-50 символов, только буквы и пробелы)" >
                 </div>
               </div>
               <div class="title_ord">
@@ -326,17 +332,17 @@
 
       <div id="serviceModal" class="modal">
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <p style="margin: 0;">Выберите вид печати</p>
+          <div><span class="close">&times;</span>
+            <p style="margin: 0;font-size: 20px;">Выберите вид печати</p>
+  
+            <!-- <hr style="border: none; height: 4px;"> -->
+            <div style="width: 104%;margin: 12px 0;height: 2px;background-color: black;transform: translateX(-2%);">
+            </div></div>
 
-          <!-- <hr style="border: none; height: 4px;"> -->
-          <div style="width: 107%; margin: 12px 0; height: 1px; background-color: gray; transform: translateX(-3%);">
-          </div>
-
-          <div class="dropdown" style="display: grid; gap: 30px;">
+          <div class="dropdown" style="display: grid;gap: 30px;padding-bottom: 30px;">
             <div class="dropdown-option">
               <label class="dropdown-label" for="Печать">
-                <img style="width: 120px; align-self: center; height: 100px; overflow: hidden; " src="images/layouts/ИП/12.jpg" alt="" loading="lazy">
+                <img style="width: 120px; align-self: center; height: 115px; overflow: hidden; " src="images/layouts/ИП/12.jpg" alt="" loading="lazy">
                 <div class="dropdown-option__label" data-result-text="печати">
 
                   <input id="Печать" name="service" type="radio">
@@ -362,7 +368,7 @@
             <div class="dropdown-option">
 
               <label class="dropdown-label" for="Штамп1">
-                <img style="width: 150px; height: 100px;   align-self: center;" src="images/layouts/ШТАМП/08.jpg" alt="" loading="lazy">
+                <img style="width: 150px; height: 60px; margin-top: 35px;   align-self: center;" src="images/layouts/ШТАМП/08.jpg" alt="" loading="lazy">
                 <div class="dropdown-option__label"
                   data-result-text="штампа">
                   <input id="Штамп1" name="service" type="radio">
@@ -385,7 +391,7 @@
             </div>
             <div class="dropdown-option">
               <label class="dropdown-label" for="Штамп">
-                <img style="width: 120px; align-self: center; height: 100px;  " src="images/layouts/ШТАМП/01.jpg" alt="" loading="lazy">
+                <img style="width: 140px; align-self: center; height: 110px;  " src="images/layouts/ШТАМП/01.jpg" alt="" loading="lazy">
                 <div class="dropdown-option__label" data-result-text="треугольного штампа">
 
                   <input id="Штамп" name="service" type="radio">
@@ -402,7 +408,7 @@
             </div>
             <div class="dropdown-option">
               <label class="dropdown-label" for=" факсимиле">
-                <img style="width: 120px; height: 100px;   align-self: center;" src="images/layouts/ЭКЛИБРИС/08.jpg" alt="" loading="lazy">
+                <img style="width: 140px; height: 110px;   align-self: center;" src="images/layouts/ЭКЛИБРИС/08.jpg" alt="" loading="lazy">
                 <div class="dropdown-option__label" data-result-text="факсимиле">
                   <input id="факсимиле" name="service" type="radio">
                   <label class="dropdown-option__size" for="факсимиле">
@@ -425,7 +431,7 @@
             </div>
             <div class="dropdown-option">
               <label class="dropdown-label" for="Еклибрис">
-                <img style="width: 120px; height: 100px;   align-self: center;" src="images/layouts/ЭКЛИБРИС/08.jpg" alt="" loading="lazy">
+                <img style="width: 140px; height: 110px;   align-self: center;" src="images/layouts/ЭКЛИБРИС/08.jpg" alt="" loading="lazy">
                 <div class="dropdown-option__label" data-result-text="еклибриса">
                   <input id="Еклибрис" name="service" type="radio">
                   <label class="dropdown-option__size" for="Еклибрис">
@@ -538,11 +544,20 @@
                     type="text"
                     id="user_name"
                     name="user_name"
-                    placeholder="Имя, статус"
+                    placeholder="Имя"
                     required
                     pattern="^[А-Яа-яЁёA-Za-z\s]{2,50}$"
                     title="Введите имя (2-50 символов, только буквы и пробелы)" />
-    
+                    
+                    <input
+                    type="text"
+                    id="user_status"
+                    name="user_status"
+                    style="margin-top: 20px"
+                    placeholder="Статус"
+                    required
+                    pattern="^[А-Яа-яЁёA-Za-z\s]{2,50}$"
+                    title="Введите имя (2-50 символов, только буквы и пробелы)" />
                   <input
                     type="email"
                     id="user_email"

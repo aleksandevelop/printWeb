@@ -70,13 +70,13 @@
                             manualAdvance: false,
                             sliderHeight: '400px',
                             afterLoad: function () {
-                                console.log('Nivo Slider loaded');
+                                // console.log('Nivo Slider loaded');
                             },
                             beforeChange: function () {
-                                console.log('Slide changing');
+                                // console.log('Slide changing');
                             },
                             afterChange: function () {
-                                console.log('Slide changed');
+                                // console.log('Slide changed');
                             }
                         });
                         console.log('Nivo Slider initialized successfully');

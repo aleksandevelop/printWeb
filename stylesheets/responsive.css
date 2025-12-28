@@ -281,7 +281,7 @@
   }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   #footer {
     background: none !important;
     background-size: auto 100px;
@@ -337,7 +337,7 @@
     margin-top: 20px;
     text-align: center;
   }
-}
+} */
 
 /* For mobile (max-width: 768px) */
 @media (max-width: 768px) {

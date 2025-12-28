@@ -59,6 +59,7 @@
     rel="stylesheet"
     type="text/css" />
   <link rel="stylesheet" href="stylesheets/responsive.css" />
+  <link rel="stylesheet" href="stylesheets/normalize.css">
   <script src="javascripts/jquery-1.7.1.js" type="text/javascript"></script>
   <script src="javascripts/terrific-1.1.1.js" type="text/javascript"></script>
   <script src="javascripts/responsive.js" type="text/javascript"></script>
@@ -540,7 +541,10 @@
           class="title subheaders nexaScriptHeavyFont"
           style="text-transform: none;">Отзывы о Нас
         </h3>
-        <ul>
+        <ul style="
+            display: flex;
+            flex-direction: column;
+            gap: 35px;">
           <li>
             <p class="left text-center timestamp">
               <span class="month">Nov</span>
@@ -648,28 +652,26 @@
     </div>
   </div>
 
-  <div class="container" id="footer">
-    <div class="row">
-      <div class="foot">
+  <footer class="footer" id="footer">
+    <div class="footer__container ">
+      <div class="footer__main row">
         <h6>Казань ул.Ф.Амирхана</h6>
         <div class="social">
-          <img src="images/social/whatsapp-fill.png" alt="WhatsApp"
-          loading="lazy">
-          <img src="images/social/telegram-fill.png" alt="telegra"
-          loading="lazy">
-          <img src="images/social/viber.png" alt="viber"
-          loading="lazy">
-          <img src="images/social/vk-social-network-logo.png" alt="vk"
-          loading="lazy">
+          <a href="/"
+            class="social__link"><img src="images/social/whatsapp-fill.png" alt="whatsapp" loading="lazy"></a>
+          <a href="/"
+            class="social__link"><img src="images/social/telegram-fill.png" alt="telegram"  loading="lazy"></a>
+          <a href="/" class="social__link"><img src="images/social/viber.png" alt="viber" loading="lazy"></a>
+          <a href="/"
+            class="social__link"><img src="images/social/vk-social-network-logo.png" alt="VK " loading="lazy"></a>
         </div>
-
         <h6>89370090705 / info@mail.ru</h6>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <p class="copy">© 2022. Печати и Штампы в Казани</p>
-  </div>
+    <div class="container">
+      <p class="copy">© 2022. Печати и Штампы в Казани</p>
+    </div>
+  </footer>
 </body>
 <link href="../css?family=Droid+Serif:400,400italic|Droid+Sans" rel="stylesheet" type="text/css">
 

@@ -48,7 +48,6 @@ body {
   font-weight: 800;
 }
 
-
 .Steelfish {
   font-family: "Steelfish";
   font-weight: bold;
@@ -169,7 +168,6 @@ body #main {
 }
 
 body #footer {
-  background: url(../images/footer_bg.png) left top repeat-x;
   min-width: 960px;
 }
 
@@ -213,14 +211,25 @@ body.colorSchemeCyan .button:hover {
 #footer {
   font-size: 12px;
   font-family: "droid sans", "helvetica neue", helvetica, arial, sans-serif;
+  margin-top: 50px;
 }
-
+.footer h6 {
+  margin: 0;
+  color: white;
+}
+.footer__container {
+  padding: 20px;
+  background: url(../images/footer_bg.png) left top repeat-x;
+}
+.footer__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 p.copy {
   font-family: "droid serif", Georgia, times, serif;
   color: #89897a;
   font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -1106,7 +1115,7 @@ p.copy {
 .modNav .nav-bar {
   background: transparent;
   border: none;
-  margin-top: 22px;
+  margin-top: 20px;
 }
 
 .modNav .nav-bar > li {
@@ -1973,8 +1982,6 @@ p.copy {
 }
 
 #footer {
-  margin-top: 30px;
-  height: 70px;
 }
 
 .foot {
@@ -2150,8 +2157,14 @@ p.copy {
   color: gray;
 }
 .social img {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
+}
+.social__link{
+  transition-duration: 0.2s;
+}
+.social__link:hover{
+  transform: scale(1.1);
 }
 .order {
   display: flex;
@@ -2253,7 +2266,7 @@ span {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  padding-top: 3px;
+
   font-size: 20px;
   color: gray;
 }
@@ -2635,11 +2648,10 @@ span {
   min-height: 310px;
   /* min-width: 55%; */
   width: 100%;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .close {

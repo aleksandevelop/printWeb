@@ -59,21 +59,22 @@
       type="text/css"
     />
     <link rel="stylesheet" href="stylesheets/responsive.css" />
+    <link rel="stylesheet" href="stylesheets/normalize.css">
     
 
       
-    <script src="javascripts/jquery-1.7.1.js" type="text/javascript"></script>
+    <!-- <script src="javascripts/jquery-1.7.1.js" type="text/javascript"></script> -->
 
-    <script src="javascripts/terrific-1.1.1.js" type="text/javascript"></script>
-    <script src="javascripts/slides.jquery.js"></script>
-    <script
+    <!-- <script src="javascripts/terrific-1.1.1.js" type="text/javascript"></script> -->
+    <!-- <script src="javascripts/slides.jquery.js"></script> -->
+    <!-- <script
       src="/javascripts/jquery.nivo.slider.js"
       type="text/javascript"
-    ></script>
-    <script src="javascripts/app.js" type="text/javascript"></script>
+    ></script> -->
+    <!-- <script src="javascripts/app.js" type="text/javascript"></script> -->
   </head>
   <body>
-    <div class="mod modStylePanel">
+    <!-- <div class="mod modStylePanel">
       <a class="switch to-open" href="#" style="display: none">switch</a>
       <div class="panel-container">
         <h4>Background Patterns</h4>
@@ -141,7 +142,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
     <div class="container" id="header">
       <div class="row">
         <div class='push-ten mobile-social' style=" display: flex; justify-content: end;">
@@ -188,8 +189,8 @@
         </div>
       </div>
     </div>
-    <div id="overlay" class="overlay" onclick="toggleMenu()"></div>
-    <div id="offcanvasMenu" class="offcanvas">
+    <!-- <div id="overlay" class="overlay" onclick="toggleMenu()"></div> -->
+    <!-- <div id="offcanvasMenu" class="offcanvas">
       <span class="closebtn" onclick="toggleMenu()">×</span>
       <ul>
         <li><a class="main" href="index.html">ОНЛАЙН ЗАКАЗ</a></li>
@@ -198,8 +199,8 @@
         <li><a href="portfolio.html">ПОРТФОЛИО</a></li>
         <li><a href="contact.html">КОНТАКТЫ</a></li>
       </ul>
-    </div>
-   
+    </div> -->
+  
     <div class="row" style="transform: translateY(-24px);">
       <div class="cards">
         <div class="card">
@@ -658,7 +659,10 @@
             <h3 class="title subheaders nexaScriptHeavyFont" style="text-transform: none">
               Отзывы о Нас
             </h3>
-            <ul>
+            <ul style="
+            display: flex;
+            flex-direction: column;
+            gap: 35px;">
               <li>
                 <p class="left text-center timestamp">
                   <span class="month">Nov</span>
@@ -775,29 +779,28 @@
           </div>
         </div>
       </div>
-      <div class="container" id="footer">
-        <div class="row">
-          <div class="foot">
+      <footer class="footer" id="footer">
+        <div class="footer__container ">
+          <div class="footer__main row">
             <h6>Казань ул.Ф.Амирхана</h6>
             <div class="social">
-              <img src="images/social/whatsapp-fill.png" alt="WhatsApp"  
-              loading="lazy"/>
-              <img src="images/social/telegram-fill.png" alt="Telegram"
-              loading="lazy" />
-              <img src="images/social/viber.png" alt="Viber" 
-              loading="lazy"/>
-              <img src="images/social/vk-social-network-logo.png" alt="VK"
-              loading="lazy" />
+              <a href="/"
+                class="social__link"><img src="images/social/whatsapp-fill.png" alt="whatsapp" loading="lazy"></a>
+              <a href="/"
+                class="social__link"><img src="images/social/telegram-fill.png" alt="telegram"  loading="lazy"></a>
+              <a href="/" class="social__link"><img src="images/social/viber.png" alt="viber" loading="lazy"></a>
+              <a href="/"
+                class="social__link"><img src="images/social/vk-social-network-logo.png" alt="VK " loading="lazy"></a>
             </div>
             <h6>89370090705 / info@mail.ru</h6>
           </div>
         </div>
-      </div>
-      <div class="container">
-        <p class="copy">© 2022. Печати и Штампы в Казани</p>
-      </div>
+        <div class="container">
+          <p class="copy">© 2022. Печати и Штампы в Казани</p>
+        </div>
+      </footer>
     </div>
-    <script>
+    <!-- <script>
       // Ensure DOM is fully loaded before attaching event listeners
       document.addEventListener("DOMContentLoaded", function () {
         console.log("DOM fully loaded");
@@ -886,6 +889,6 @@
           }
         };
       });
-    </script>
+    </script> -->
   </body>
 </html>

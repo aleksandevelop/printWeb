@@ -1,21 +1,21 @@
-/**
- * Terrific JavaScript Framework v1.1.1
- * http://terrifically.org
- *
- * Copyright 2012, Remo Brunschwiler
- * MIT Licensed.
- *
- * Date: Thu, 10 May 2012 12:32:39 GMT
- *
- *
- * Includes:
- * Simple JavaScript Inheritance
- * By John Resig http://ejohn.org/
- * MIT Licensed.
- *
- * @module Tc
- * 
- */
+// // /**
+//  * Terrific JavaScript Framework v1.1.1
+//  * http://terrifically.org
+//  *
+//  * Copyright 2012, Remo Brunschwiler
+//  * MIT Licensed.
+//  *
+//  * Date: Thu, 10 May 2012 12:32:39 GMT
+//  *
+//  *
+//  * Includes:
+//  * Simple JavaScript Inheritance
+//  * By John Resig http://ejohn.org/
+//  * MIT Licensed.
+//  *
+//  * @module Tc
+//  * 
+//  */
 
 var Tc = Tc || {};
 

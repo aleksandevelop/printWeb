@@ -64,3 +64,56 @@
   -o-animation: rotateLogo 0.8s 1;
   -ms-animation: rotateLogo 0.8s 1;
 }
+
+/* Бургер-меню */
+.burger-menu {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.burger-menu span {
+  position: absolute;
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #bd3b13;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.burger-menu span:nth-child(1) {
+  top: 0px;
+}
+
+.burger-menu span:nth-child(2) {
+  top: 10px;
+}
+
+.burger-menu span:nth-child(3) {
+  top: 20px;
+}
+
+.burger-menu.active span:nth-child(1) {
+  top: 10px;
+  transform: rotate(135deg);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.burger-menu.active span:nth-child(3) {
+  top: 10px;
+  transform: rotate(-135deg);
+}

@@ -61,6 +61,63 @@
     flex-direction: column;
     gap: 20px;
   }
+
+  /* Мобильные стили для хедера */
+  .header__bottom {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding-block: 15px 25px;
+  }
+
+  .header__image {
+    position: relative;
+  }
+
+  .header__img {
+    position: static;
+    width: 80px;
+    height: 80px;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .header__nav {
+    position: relative;
+  }
+
+  .header__list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    background: #bd3b13;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    min-width: 200px;
+    z-index: 1000;
+    gap: 15px;
+  }
+
+  .header__list.active {
+    display: flex;
+  }
+
+  .header__link {
+    font-size: 18px;
+    line-height: 1.2;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .header__link:hover {
+    background: #842002;
+    transform: translateX(-2px);
+  }
 }
 @media (max-width: 445px) {
   .works__list {
